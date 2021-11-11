@@ -58,3 +58,13 @@ node app -b 10
 -- Podemos ignorar la carpeta de modulos de node en el archivo .gitignore, y cuando queramos 
 -- descargar la app y ocuparla, podemos reconstruir los modulos con el comandos
 npm install
+
+
+-- Para trabajar con git se utiliza el comando
+git init
+git add .
+git commit -m "Mi primer commit"
+
+-- Para regenerar el proyecto desde el ultimo commit
+git checkout -- .
+
