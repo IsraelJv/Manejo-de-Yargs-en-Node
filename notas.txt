@@ -1,0 +1,60 @@
+-- Se eliminó este código y se cambió por un fs.writeFileAsync en el archivo app.js
+fs.writeFile( `tabla-${base}.txt`, salida, (err) => {
+    if(err) throw err //Si existe un error, regresa el error
+    console.log(`tabla-${base}.txt creado`);
+})
+
+
+-- Se eliminó este código porque es mejor trabajar los argumentos en consola con Yarg en el archivo app.js
+//Argumentos que vienen por la consola
+//El primer argumento es donde se encuentra el path de node
+//El segundo es donde se encuentra la aplicación
+//console.log(process.argv); 
+/* No es recomendable hacer esto porque se maneja por posicion de argumento
+const [ , , arg3 = 'base=1' ] = process.argv; //Se extrae el tercer argumento.
+const [ , base ] = arg3.split('='); //Va a extraer el contenido que se encuentre despues del =
+*/
+
+
+-- Se crea el package.json
+npm init
+--Se deja tal cual el nombre del paquete (03-bases-node)
+--Se pone que es la version 0.0.1 que significa que todavia esta en etapa de desarrollo
+--Se le pone una descripción de lo que hace el paquete
+--Se indica el punto de inicio (app.js) 
+--Tambien nos va a pedir test command, git repository, keywords, author, license
+-- author ponemos nuestro nombre y en license MIT
+--Al terminar, nos añade toda esa información en un archivo package.json
+
+
+-- En el archivo package.json, podremos crear nuestros propios scripts
+-- Dentro de scripts ponemos el nombre de nuestro script seguido de lo que queremos que haga
+"correrApp": "node app.js base=4"
+--En consola, lo podemos ejecutar con
+npm run correrApp
+--y es lo mismo que si ejecutaramos node app.js base=4
+
+
+--Se instaló el paquete nodemon como dependencia de desarrollo, mientras que colors como dependencia.
+--Una dependencia de desarrollo significa que no es necesario instalarla cuando ya se quiera probar
+--la aplicación final mientras que la dependencia si es necesario hacer sus debidas instalaciones.
+https://www.npmjs.com/package/colors
+https://www.npmjs.com/package/nodemon
+
+--Si queremos instalar una dependencia con cierta version 
+npm i colors@1.0.0
+--Si queremos actualizar una dependencia automaticamente
+npm update
+
+-- Se instala la dependecia yargs que nos va a servir a obtener resultados con menos codigo. 
+--(Obtencion de datos en consola)
+https://www.npmjs.com/package/yargs
+
+
+-- Si queremos utilizar yargs, mandar un valor desde consola y ejecutar la app. 
+node app -b 10
+
+
+-- Podemos ignorar la carpeta de modulos de node en el archivo .gitignore, y cuando queramos 
+-- descargar la app y ocuparla, podemos reconstruir los modulos con el comandos
+npm install
